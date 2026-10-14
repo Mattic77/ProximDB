@@ -1,5 +1,5 @@
 {
-  "name": "proxim-engine-db",
+  "name": "proximdb",
   "version": "1.0.1",
   "description": "High-performance embedded local search and relationship engine for Node.js and Express",
   "main": "dist/index.js",
