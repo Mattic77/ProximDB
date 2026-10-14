@@ -273,3 +273,19 @@ npm run build
 - [Search Modes & Recursive CTEs](docs/02-Search-Modes.md)
 - [Sync Engine & Adapters](docs/03-Sync-Engine.md)
 - [Live Test Walkthrough & Latency](results/WALKTHROUGH.md)
+
+---
+
+## 👤 Author
+
+**Younes HADLI**
+- GitHub: [@Mattic77](https://github.com/Mattic77)
+- Email: [youneshadli09@gmail.com](mailto:youneshadli09@gmail.com)
+- Repository: [https://github.com/Mattic77/ProximDB](https://github.com/Mattic77/ProximDB)
+
+---
+
+## 📄 License
+
+MIT © [Younes HADLI](https://github.com/Mattic77)
+

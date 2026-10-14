@@ -24,7 +24,19 @@
     "middleware",
     "recommendations"
   ],
-  "author": "",
+  "author": {
+    "name": "Younes HADLI",
+    "email": "youneshadli09@gmail.com",
+    "url": "https://github.com/Mattic77"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mattic77/ProximDB.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Mattic77/ProximDB/issues"
+  },
+  "homepage": "https://github.com/Mattic77/ProximDB#readme",
   "license": "MIT",
   "dependencies": {
     "better-sqlite3": "^11.8.1"
