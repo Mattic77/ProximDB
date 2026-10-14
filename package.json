@@ -1,0 +1,47 @@
+{
+  "name": "proximdb",
+  "version": "1.0.0",
+  "description": "High-performance embedded local search and relationship engine for Node.js and Express",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsup",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:report": "mkdir -p results && vitest run --reporter=verbose --reporter=json --outputFile.json=results/test-results.json | tee results/test-summary.txt",
+    "demo": "npx tsup scripts/run-demo.ts --out-dir dist-demo --format esm --target es2022 --no-dts && node dist-demo/run-demo.mjs && rm -rf dist-demo",
+    "typecheck": "tsc --noEmit"
+  },
+  "keywords": [
+    "search",
+    "sqlite",
+    "embedded",
+    "graph",
+    "proximity",
+    "fuzzy-search",
+    "express",
+    "middleware",
+    "recommendations"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "better-sqlite3": "^11.8.1"
+  },
+  "optionalDependencies": {
+    "pg": "^8.13.1",
+    "mysql2": "^3.12.0",
+    "mongodb": "^6.13.0"
+  },
+  "devDependencies": {
+    "@types/better-sqlite3": "^7.6.12",
+    "@types/express": "^5.0.0",
+    "@types/node": "^22.13.4",
+    "@types/pg": "^8.11.11",
+    "express": "^4.21.2",
+    "tsup": "^8.3.6",
+    "typescript": "^5.7.3",
+    "vitest": "^3.0.5"
+  }
+}

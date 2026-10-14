@@ -1,0 +1,104 @@
+# ==========================================
+# ProximDB .gitignore
+# Prevents exposing secrets, databases, logs,
+# and build artifacts to git remotes.
+# ==========================================
+
+# ------------------------------------------
+# 1. Environment Variables & Secrets
+# ------------------------------------------
+.env
+.env.*
+!.env.example
+*.env
+*.pem
+*.key
+*.cert
+*.crt
+*.pfx
+*.p12
+credentials.json
+serviceAccountKey.json
+secrets/
+
+# ------------------------------------------
+# 2. Databases & Embedded SQLite Storage
+# ------------------------------------------
+# Default ProximDB local storage
+.proximdb/
+cache/
+data/
+
+# SQLite database files and lock/journal files
+*.db
+*.db-journal
+*.db-wal
+*.db-shm
+*.sqlite
+*.sqlite3
+*.sqlite3-journal
+
+# ------------------------------------------
+# 3. Dependencies
+# ------------------------------------------
+node_modules/
+.pnpm-store/
+.yarn/
+.pnp
+.pnp.js
+
+# ------------------------------------------
+# 4. Build & Distribution Outputs
+# ------------------------------------------
+dist/
+dist-demo/
+build/
+out/
+*.tsbuildinfo
+
+# ------------------------------------------
+# 5. Logs & Diagnostic Files
+# ------------------------------------------
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# ------------------------------------------
+# 6. Test Coverage & Scratch Artifacts
+# ------------------------------------------
+coverage/
+.nyc_output/
+*.lcov
+tmp/
+temp/
+
+# ------------------------------------------
+# 7. IDE & Editor Artifacts
+# ------------------------------------------
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.swp
+*.swo
+*~
+
+# ------------------------------------------
+# 8. Operating System Files
+# ------------------------------------------
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini

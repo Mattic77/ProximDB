@@ -1,0 +1,41 @@
+
+ RUN  v3.2.7 /home/matiic/Documents/SearchJS Engine/dbsearchengine
+
+ ✓ tests/proximity.strategy.test.ts > ProximityStrategy > ranks candidates by mutual connection count 19ms
+ ✓ tests/proximity.strategy.test.ts > ProximityStrategy > excludes direct connections and the user itself from recommendations 9ms
+ ✓ tests/proximity.strategy.test.ts > ProximityStrategy > filters proximity recommendations with queryText 5ms
+ ✓ tests/proximity.strategy.test.ts > ProximityStrategy > returns empty array if forUser is not provided 3ms
+ ✓ tests/proximdb.test.ts > ProximDB Multi-Mode Engine > executes multi-mode query returning fuzzy and proximity results in expected format 19ms
+ ✓ tests/proximdb.test.ts > ProximDB Multi-Mode Engine > supports incremental sync when primary database updates 6ms
+ ✓ tests/proximdb.test.ts > ProximDB Multi-Mode Engine > uses default storage path when embeddedStoragePath is omitted 36ms
+ ✓ tests/express.test.ts > Express Integration > handles search requests via createSearchHandler 99ms
+ ✓ tests/express.test.ts > Express Integration > handles search requests using req.proxim in custom route 27ms
+ ✓ tests/fuzzy.strategy.test.ts > FuzzyStrategy > matches exact text and prefixes 13ms
+ ✓ tests/fuzzy.strategy.test.ts > FuzzyStrategy > matches with typos (fuzzy match) 6ms
+ ✓ tests/fuzzy.strategy.test.ts > FuzzyStrategy > respects limits 4ms
+ ✓ tests/fuzzy.strategy.test.ts > FuzzyStrategy > filters by entityType 4ms
+ ✓ tests/security.test.ts > Security & Vulnerability Defenses > SQL Identifier Validation & Injection Defense > allows valid alphanumeric and underscore identifiers 3ms
+ ✓ tests/security.test.ts > Security & Vulnerability Defenses > SQL Identifier Validation & Injection Defense > rejects SQL injection payloads in table and column identifiers 3ms
+ ✓ tests/security.test.ts > Security & Vulnerability Defenses > SQL Identifier Validation & Injection Defense > prevents PostgresAdapter from executing queries with malicious table names 2ms
+ ✓ tests/security.test.ts > Security & Vulnerability Defenses > SQL Identifier Validation & Injection Defense > prevents MySQLAdapter from executing queries with malicious column names 1ms
+ ✓ tests/security.test.ts > Security & Vulnerability Defenses > SQL Identifier Validation & Injection Defense > prevents MongoDBAdapter from accessing malicious collection or field names 2ms
+ ✓ tests/security.test.ts > Security & Vulnerability Defenses > Denial of Service (DoS) & Memory Exhaustion Protection > clamps excessive or negative limits safely 1ms
+ ✓ tests/security.test.ts > Security & Vulnerability Defenses > Denial of Service (DoS) & Memory Exhaustion Protection > bounds recursive CTE hops to prevent exponential path explosion 1ms
+ ✓ tests/security.test.ts > Security & Vulnerability Defenses > Denial of Service (DoS) & Memory Exhaustion Protection > truncates oversized search queries to prevent ReDoS and memory bloat 1ms
+ ✓ tests/security.test.ts > Security & Vulnerability Defenses > Denial of Service (DoS) & Memory Exhaustion Protection > strips null bytes from queries 2ms
+ ✓ tests/security.test.ts > Security & Vulnerability Defenses > Strategy Input Defense > FuzzyStrategy safely handles massive limits and oversized query text 21ms
+ ✓ tests/security.test.ts > Security & Vulnerability Defenses > Strategy Input Defense > ProximityStrategy caps maxHops to 5 when user attempts 999 hops 5ms
+ ✓ tests/indexer.test.ts > Indexer > upserts and retrieves nodes 17ms
+ ✓ tests/indexer.test.ts > Indexer > updates existing nodes on conflict 4ms
+ ✓ tests/indexer.test.ts > Indexer > upserts edges and tracks counts 3ms
+ ✓ tests/indexer.test.ts > Indexer > deletes a node and its associated edges 6ms
+ ✓ tests/embedded.db.test.ts > EmbeddedDB > initializes in-memory sqlite with required tables 17ms
+ ✓ tests/embedded.db.test.ts > EmbeddedDB > computes levenshtein distance via custom SQLite function 3ms
+ ✓ tests/embedded.db.test.ts > EmbeddedDB > computes fuzzy_similarity via custom SQLite function 4ms
+
+ Test Files  7 passed (7)
+      Tests  31 passed (31)
+   Start at  18:36:06
+   Duration  2.79s (transform 869ms, setup 0ms, collect 2.32s, tests 377ms, environment 3ms, prepare 1.73s)
+
+JSON report written to /home/matiic/Documents/SearchJS Engine/dbsearchengine/results/test-results.json

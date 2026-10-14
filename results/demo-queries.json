@@ -1,0 +1,222 @@
+{
+  "generatedAt": "2026-10-14T16:36:10.754Z",
+  "scenarios": [
+    {
+      "title": "Scenario 1: Multi-Mode Query Pipeline (Fuzzy + Proximity)",
+      "description": "Executes fuzzy text matching for \"John\" and proximity graph traversal for \"user_101\" in a single query.",
+      "request": {
+        "queryText": "John",
+        "forUser": "user_101",
+        "modes": [
+          "fuzzy",
+          "proximity"
+        ],
+        "limits": {
+          "fuzzy": 5,
+          "proximity": 3
+        }
+      },
+      "response": {
+        "query": "John",
+        "forUser": "user_101",
+        "results": {
+          "fuzzy": [
+            {
+              "id": "u_201",
+              "entityType": "user",
+              "username": "JohnDoe",
+              "bio": "Senior Backend Engineer",
+              "city": "Paris",
+              "score": 0.85
+            },
+            {
+              "id": "u_305",
+              "entityType": "user",
+              "username": "Johnny",
+              "bio": "UI/UX Designer",
+              "city": "Lyon",
+              "score": 0.85
+            }
+          ],
+          "proximity": [
+            {
+              "id": "u_410",
+              "entityType": "user",
+              "username": "AlexSmith",
+              "bio": "Product Architect",
+              "city": "London",
+              "mutualCount": 4,
+              "reason": "You have 4 mutual connections",
+              "mutualIds": [
+                "f_1",
+                "f_2",
+                "f_3",
+                "f_4"
+              ],
+              "score": 2
+            }
+          ]
+        },
+        "meta": {
+          "tookMs": 3,
+          "counts": {
+            "fuzzy": 2,
+            "proximity": 1
+          }
+        }
+      }
+    },
+    {
+      "title": "Scenario 2: Damerau-Levenshtein Typo Tolerance",
+      "description": "Detects character transposition (\"Jonh\" -> \"JohnDoe\") and ranks candidates by similarity score.",
+      "request": {
+        "queryText": "Jonh",
+        "modes": [
+          "fuzzy"
+        ]
+      },
+      "response": {
+        "query": "Jonh",
+        "results": {
+          "fuzzy": []
+        },
+        "meta": {
+          "tookMs": 1,
+          "counts": {
+            "fuzzy": 0
+          }
+        }
+      }
+    },
+    {
+      "title": "Scenario 3: Graph Proximity & Mutual Connections",
+      "description": "Traverses second-degree graph paths, computes mutual connection count, excludes existing friends, and generates explanations.",
+      "request": {
+        "forUser": "user_101",
+        "modes": [
+          "proximity"
+        ]
+      },
+      "response": {
+        "forUser": "user_101",
+        "results": {
+          "proximity": [
+            {
+              "id": "u_410",
+              "entityType": "user",
+              "username": "AlexSmith",
+              "bio": "Product Architect",
+              "city": "London",
+              "mutualCount": 4,
+              "reason": "You have 4 mutual connections",
+              "mutualIds": [
+                "f_1",
+                "f_2",
+                "f_3",
+                "f_4"
+              ],
+              "score": 2
+            }
+          ]
+        },
+        "meta": {
+          "tookMs": 0,
+          "counts": {
+            "proximity": 1
+          }
+        }
+      }
+    },
+    {
+      "title": "Scenario 4: Express Middleware & HTTP Handler",
+      "description": "Demonstrates Express integration using GET /api/search?q=John&forUser=user_101&modes=fuzzy,proximity",
+      "requestUrl": "/api/search?q=John&forUser=user_101&modes=fuzzy,proximity",
+      "response": {
+        "query": "John",
+        "forUser": "user_101",
+        "results": {
+          "fuzzy": [
+            {
+              "id": "u_201",
+              "entityType": "user",
+              "username": "JohnDoe",
+              "bio": "Senior Backend Engineer",
+              "city": "Paris",
+              "score": 0.85
+            },
+            {
+              "id": "u_305",
+              "entityType": "user",
+              "username": "Johnny",
+              "bio": "UI/UX Designer",
+              "city": "Lyon",
+              "score": 0.85
+            }
+          ],
+          "proximity": [
+            {
+              "id": "u_410",
+              "entityType": "user",
+              "username": "AlexSmith",
+              "bio": "Product Architect",
+              "city": "London",
+              "mutualCount": 4,
+              "reason": "You have 4 mutual connections",
+              "mutualIds": [
+                "f_1",
+                "f_2",
+                "f_3",
+                "f_4"
+              ],
+              "score": 2
+            }
+          ]
+        },
+        "meta": {
+          "tookMs": 3,
+          "counts": {
+            "fuzzy": 2,
+            "proximity": 1
+          }
+        }
+      }
+    },
+    {
+      "title": "Scenario 5: Incremental Delta Synchronization",
+      "description": "Simulates a primary database update and executes incremental sync without re-indexing unchanged data.",
+      "syncStats": {
+        "nodesCount": 1,
+        "edgesCount": 0,
+        "durationMs": 0,
+        "timestamp": 1791995770851
+      },
+      "request": {
+        "queryText": "Sarah",
+        "modes": [
+          "fuzzy"
+        ]
+      },
+      "response": {
+        "query": "Sarah",
+        "results": {
+          "fuzzy": [
+            {
+              "id": "u_999",
+              "entityType": "user",
+              "username": "SarahConnor",
+              "bio": "Cybernetics Specialist",
+              "city": "Los Angeles",
+              "score": 0.85
+            }
+          ]
+        },
+        "meta": {
+          "tookMs": 1,
+          "counts": {
+            "fuzzy": 1
+          }
+        }
+      }
+    }
+  ]
+}
