@@ -1,10 +1,15 @@
 {
-  "name": "proximdb",
+  "name": "proxim-engine-db",
   "version": "1.0.0",
   "description": "High-performance embedded local search and relationship engine for Node.js and Express",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
   "scripts": {
     "build": "tsup",
     "test": "vitest run",

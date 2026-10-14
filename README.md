@@ -1,6 +1,14 @@
-# ProximDB (Search & Relationship Engine)
+# ProximDB (`proxim-engine-db`)
+
+[![npm version](https://img.shields.io/npm/v/proxim-engine-db.svg)](https://www.npmjs.com/package/proxim-engine-db)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.7-blue.svg)](https://www.typescriptlang.org/)
 
 ProximDB is an embedded, zero-network-latency search and recommendation middleware built for **Node.js** and **Express.js**.
+
+```bash
+npm install proxim-engine-db better-sqlite3
+```
 
 Instead of running slow wildcard text searches (`LIKE '%...%'`) or expensive multi-table graph joins on your primary production database (Postgres, MySQL, MongoDB), ProximDB mirrors targeted data into an in-process, memory-cached SQLite engine (`better-sqlite3`).
 
@@ -183,7 +191,7 @@ Here is what happens inside:
 ### Option A: Turnkey Search Route
 ```typescript
 import express from 'express';
-import { ProximDB, createSearchHandler } from 'proximdb';
+import { ProximDB, createSearchHandler } from 'proxim-engine-db';
 
 const app = express();
 const engine = new ProximDB({ /* config */ });
@@ -198,7 +206,7 @@ app.listen(3000);
 ### Option B: Custom Route via `req.proxim`
 ```typescript
 import express from 'express';
-import { ProximDB, proximMiddleware } from 'proximdb';
+import { ProximDB, proximMiddleware } from 'proxim-engine-db';
 
 const app = express();
 const engine = new ProximDB({ /* config */ });
